@@ -1,0 +1,176 @@
+body {
+    width: 400px;
+    height: 800px;
+    margin: 3px 0px;
+}
+
+.top {
+    display: flex;
+    width: 100%;
+    align-items: center;
+    font-size: 0.9em;
+    justify-content: space-between;
+    margin: 0px 3px;
+}
+.head {
+    display: flex;
+    width: 100%;
+    font-size: 1.5em;
+    align-items: center;
+    justify-content: space-between;
+}
+.time {
+    position: relative;
+    left: 10px;
+}
+.icons3 {
+    display: flex;
+    justify-content: space-between;
+    width: 100px;
+    padding-top: 10px;
+}
+.id {
+    margin: 0px 3px;
+}
+.profileimg {
+    width: 15%;
+    padding: 5%;
+    border-radius: 100%;
+}
+.circleimg {
+    border-radius: 50%;
+}
+.profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 0px;
+    position: relative;
+    top: -10px;
+}
+.status {
+    display: flex;
+    justify-content: space-between;
+    width: 250px;
+    margin-left: 30px;
+}
+.status_value {
+    text-align: center;
+}
+.bold {
+    font-weight: bold;
+}
+.blue {
+    color: rgb(7, 171, 247);
+}
+.info {
+    position: relative;
+    top: -30px;
+    margin: 3px;
+}
+.profile_change {
+    display: flex;
+    align-items: center;
+
+    position: relative;
+    top: -25px;
+}
+.box {
+    background-color: black;
+    color: white;
+    border-radius: 8px;
+    padding: 5px;
+    width: 180px;
+    text-align: center;
+    margin: 2px;
+}
+.user {
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    border-radius: 8px;
+    position: relative;
+}
+.userplus {
+    position: absolute;
+    top: 7px;
+    left: 5px;
+}
+.hightlight {
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    position: relative;
+    top: -25px;
+}
+.sets {
+    display: inline-block;
+    margin-bottom: 0px;
+    text-align: center;
+}
+.hightpics {
+    width: 50px;
+    height: 50px;
+    margin: 13px;
+    border-radius: 50%;
+    border: 2px solid rgb(212, 217, 214);
+    padding: 1px;
+    margin-bottom: 0px;
+}
+.icons2 {
+    position: relative;
+    top: -10px;
+    font-size: 1.3em;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+.icon {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.bar {
+    width: 40px;
+    height: 3px;
+    background-color: black;
+    margin: 5px;
+}
+.flag {
+    font-size: 12px;
+}
+.feed {
+    width: 100%;
+    /* display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 3px; */
+}
+.feed img {
+    width: 32.35%;
+    margin: 0px;
+    padding: 0px;
+}
+.normalpic img {
+    height: 128px;
+}
+.cutpic img {
+    height: 72px;
+}
+.cutpic {
+    width: 100%;
+}
+.bottom {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    font-size: 1.4em;
+    align-items: center;
+}
+.bottomimg {
+    position: relative;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: solid black 2px;
+}
