@@ -1,0 +1,37 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Home</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'project.css' %}?after" />
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Edu+NSW+ACT+Foundation:wght@700&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@300&family=Edu+NSW+ACT+Foundation:wght@700&display=swap" rel="stylesheet">
+    </head>
+    <body>
+        <h2>Carpe Diem!</h2>
+        <h1>JAEYOON JUNG</h1>
+        
+        <div class="menubox">
+            <div class="menu">
+                <span><a href="{% url 'home' %}">Home</a></span>
+                <span>|</span>
+                <span>About</span>
+                <span>|</span>
+                <span>Blog</span>
+                <span>|</span>
+                <span>Contact</span>
+                <span>|</span>
+                <span style="color: brown;"><a href="{% url 'project' %}">Project</a></span>
+            </div>
+        </div>
+        <div class="pjcap">
+            <img src="{% static 'images/instagram_clone.png' %}" />
+            <img src="{% static 'images/toss_clone.png' %}"/>
+        </div>
+
+    </body>
+</html>
