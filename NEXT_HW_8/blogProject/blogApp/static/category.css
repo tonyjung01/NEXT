@@ -1,0 +1,39 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0 auto;
+    color: #333;
+    text-align: center;
+    border: solid 3px black;
+    height: 80vh;
+    width: 60vh;
+}
+.container {
+    background-color: rgb(161, 227, 249);
+    height: 100%;
+    width: 100%;
+}
+
+h2 {
+    margin: 0;
+    padding: 4vh;
+}
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin-bottom: 3vh;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+.list > a {
+    color: black;
+}

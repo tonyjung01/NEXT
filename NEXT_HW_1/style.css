@@ -1,0 +1,50 @@
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.left-content,
+.right-content {
+    width: 50%;
+    border: 10px outset rgba(237, 151, 21, 1);
+    font-size: 20px;
+    font-weight: bold;
+    font-family: 'Monaco';
+}
+
+body {
+    background-image: url('nextrocket.png');
+    background-size: 100% 30%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center center;
+    background-color: rgba(252, 210, 144, 1);
+}
+
+ul li {
+    margin-bottom: 20px;
+    list-style: square;
+}
+
+.left-content {
+    line-height: 510%;
+}
+
+.right-content {
+    line-height: 800%;
+    text-align: center;
+}
+h1 {
+    text-align: center;
+}
+
+#right_box li {
+    list-style: none;
+}
+b {
+    color: rgba(247, 151, 21, 1);
+}
+
+#main {
+    text-decoration: underline;
+}

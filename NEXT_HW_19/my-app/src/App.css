@@ -1,0 +1,108 @@
+.App {
+  font-family: Arial, sans-serif;
+  max-width: 400px;
+  margin: 40px auto;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  color: #d32f2f;
+  font-size: 24px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.input-container {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  flex-grow: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+input:focus {
+  border-color: #d32f2f;
+  outline: none;
+}
+
+button {
+  background-color: #d32f2f;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #b71c1c;
+}
+
+button.add {
+  padding: 10px 15px;
+}
+
+ul {
+  padding: 0;
+  list-style: none;
+}
+
+li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  background: #fff;
+  margin-bottom: 10px;
+}
+
+.todo-item {
+  flex-grow: 1;
+}
+
+span {
+  font-size: 16px;
+}
+
+span.completed {
+  text-decoration: line-through;
+  color: #888;
+}
+
+button.action {
+  margin-left: 10px;
+  padding: 8px 12px;
+  background-color: #d32f2f;
+}
+
+button.action:hover {
+  background-color: #b71c1c;
+}
+
+.buttons {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.edit-mode input {
+  flex-grow: 1;
+  padding: 8px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.edit-mode button {
+  padding: 8px 12px;
+}

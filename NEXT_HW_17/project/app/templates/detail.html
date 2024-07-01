@@ -1,0 +1,111 @@
+{% extends 'base.html' %} {% block title %} Detail!{% endblock %} {% block css%} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'detail.css' %}" />
+{% endblock %} {% block content %}
+<div class="detail-post_container">
+    <div class="detail_title">제목: {{post.title}}</div>
+    <div class="detail_content">내용: {{post.content}}</div>
+    <div class="detail_content">작성자: {{post.author.username}}</div>
+    <div class="detail-post_btn">
+        <a href="{% url 'home' %}">홈 화면</a>
+        {% if user.is_authenticated and user.pk == post.author.pk %}
+        <a href="{% url 'edit' post.pk %}">수정하기</a>
+        <a href="{% url 'delete' post.pk %}">삭제하기</a>{% endif %}
+        <span class="like-count">좋아요 수 {{ post.likes.count }}</span>
+    </div>
+    <!-- <form action="" method="POST">
+        {% csrf_token %}
+        <input type="text" name="content" />
+        <button type="submit">댓글 작성</button>
+    </form> -->
+    <div>
+        <input type="text" id="comment-content" placeholder="댓글을 입력하세요" />
+        <button class="comment-submit">댓글 작성</button>
+    </div>
+    {% csrf_token %}
+    <!-- <form action="{% url 'like' %}" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="post_pk" value="{{post.pk}}" />
+        <button type="submit">좋아요</button>
+    </form> -->
+    <button class="like-button">좋아요</button>
+    <ul class="comments-list">
+        {% for comment in post.comments.all %}
+        <li>
+            <span>{{comment.content}} </span>
+            <span>{{comment.author.username}} </span>
+            {% if user.pk == comment.author.pk and user.is_authenticated %}
+            <button class="delete-comment" data-comment-id="{{ comment.pk }}">삭제</button>
+            {% endif %}
+        </li>
+        {% endfor %}
+    </ul>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const likeButton = document.querySelector('.like-button');
+        const likeCount = document.querySelector('.like-count');
+        const commentsList = document.querySelector('.comments-list');
+    
+        likeButton.addEventListener('click', function() {
+            axios.post('/like', { post_pk: '{{ post.pk }}' })
+                .then(res => {
+                    likeCount.innerHTML = '좋아요 수 ' + res.data.like_count;
+                })
+                .catch(error => console.error('Error updating like count:', error));
+        });
+    
+        document.querySelector('.comment-submit').addEventListener('click', function() {
+            const content = document.getElementById('comment-content').value;
+            const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+            axios.post('/add_comment', {
+                content: content,
+                post_pk: '{{ post.pk }}'
+            }, {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': csrfToken
+                }
+            })
+            .then(response => {
+                const newComment = response.data;
+                const newListItem = document.createElement('li');
+                newListItem.id = `comment-${newComment.id}`; // 추가된 코드
+                newListItem.innerHTML = `<span>${newComment.content}</span> <span>${newComment.author}</span>
+                    <button class="delete-comment" data-comment-id="${newComment.id}">삭제</button>`; // 변경된 코드
+                commentsList.appendChild(newListItem);
+                document.getElementById('comment-content').value = '';
+            })
+            .catch(error => console.error('Error adding comment:', error));
+        });
+    
+        commentsList.addEventListener('click', function(event) {
+            if (event.target.classList.contains('delete-comment')) {
+                const commentId = event.target.getAttribute('data-comment-id');
+                const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+                axios.post('/delete_comment', {
+                    comment_id: commentId
+                }, {
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'X-CSRFToken': csrfToken
+                    }
+                })
+                .then(response => {
+                    if (response.data.success) {
+                        const commentElement = document.getElementById(`comment-${commentId}`);
+                        if (commentElement) {
+                            commentElement.remove(); // 변경된 코드
+                        }
+                    } else {
+                        alert('댓글 삭제 실패: ' + response.data.message);
+                    }
+                })
+                .catch(error => console.error('Error deleting comment:', error));
+            }
+        });
+    });
+    </script>
+    
+
+{% endblock %}

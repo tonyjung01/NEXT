@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'list.css' %}?after" />
+{% endblock %}
+{% block content %}
+<body>
+    <div class="container">
+        <h2>Post List</h2>
+        <ul>
+        {% for article in articles %}
+        <li><a href="{% url 'detail' article.id %}">{{article.title}}</a></li>
+        {% endfor %}
+        </ul>
+        <h3 class="new"><a href="{% url 'new' %}">New Post</a></h3>
+   
+    </div>
+</body>
+
+{% endblock %}
