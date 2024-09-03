@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block css %}
+{% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'category.css' %}?after" />
+{% endblock %}
+{% block content %}
+<body>
+    <div class="container">
+        <h2>{{category_name}}</h2>
+        <div>
+        
+            <ul>
+                {% for article in articles %}
+                <li><a href="{% url 'detail' article.id %}">{{article.title}}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div>number of posts : {{cnt}}</div>
+        <h3 class="list">
+            <a href="{% url 'list' %}">Post List</a>
+        </h3>
+    
+    </div>
+    
+</body>
+{% endblock %}

@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Document</title>
+        <link rel="stylesheet" type="text/css" href="{% static 'new.css' %}?after"/>
+    </head>
+    <body>
+        <h2>글쓰기 페이지</h2>
+        <form action="{% url 'new' %}" method="post">
+            {% csrf_token %}
+            <div>
+                <div>글 제목</div>
+                <input type="text" name="title" />
+            </div>
+            <select id="category" name="category">
+                <option value="hobby">취미</option>
+                <option value="daily">잡담</option>
+                <option value="programming">프로그래밍</option>
+            </select>
+            <div>
+                <div>글 내용</div>
+                <textarea name="content" cols="30" rows="30"></textarea>
+            </div>
+            <button type="submit">작성 완료</button>
+        </form>
+    </body>
+</html>

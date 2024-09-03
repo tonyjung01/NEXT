@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title></title>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'base.css' %}?after" />
+        {% block css %}
+        {% endblock css %}
+    </head>
+    <body>
+        <header>
+        </header>
+        <main>{% block content %} {% endblock %}</main>
+        <footer>
+            <p>© 이 페이지는 2021171077 정재윤의 NEXT_HW_10의 일부입니다.</p>
+        </footer>
+    </body>
+</html>

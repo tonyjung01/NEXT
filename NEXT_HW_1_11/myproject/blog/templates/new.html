@@ -1,0 +1,24 @@
+{% extends 'base.html' %} {% block css %} {% load static %}
+<link rel="stylesheet" type="text/css" href="{% static 'new.css' %}?after" />
+{% endblock %} 
+
+{% block content %}
+<body>
+    <h2>Make A New Post</h2>
+    <form action="{% url 'new' %}" method="post">
+        {% csrf_token %}
+        <div>
+            <div>Title</div>
+            <input type="text" name="title" />
+        </div>
+        
+        <div>
+            <div>Content</div>
+            <textarea name="content" cols="30" rows="30"></textarea>
+        </div>
+        <div class="submitbutton">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>
+{% endblock %}

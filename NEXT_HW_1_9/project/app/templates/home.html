@@ -1,0 +1,27 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="{% static 'home.css' %}?after"/>
+</head>
+<body>
+    <div class="container">
+        <h1>할 일 목록</h1>
+        <div>
+        <ul>
+            {% for post in posts %}
+            <li>
+                <a href="{% url 'detail' post.pk %}">{{post.title}}</a> 
+                <span>D-{{ post.dday }}</span>
+            </li>
+            {% endfor %}
+        </ul>
+        </div>
+        <div class="new"><a href="{% url 'new' %}">새로운 할 일 추가하기</a></div>
+    </div>
+    
+</body>
+</html>
