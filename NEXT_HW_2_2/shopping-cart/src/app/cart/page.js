@@ -7,22 +7,18 @@ import { GNB_TYPE } from '../../constants/common';
 import { ProductInCart } from '../../components/ProductInCart';
 import { Box } from '../../styles/StyleComponent';
 import { CartContext } from '../../context/CartContext';
-
+import { useCartStore } from '../../store/CartStore';
 function CartPage() {
-    const { cart, setCart } = useContext(CartContext); // Context 사용
+    const { cart, setCart } = useCartStore(); // Context 사용
 
     return (
         <Base>
             <GNB type={GNB_TYPE.MAIN} />
             <Inner>
                 <Box gap={30}>
-                    {!cart || cart.length <= 0 ? (
-                        <Text>등록된 상품이 없습니다.</Text>
-                    ) : (
-                        cart.map((product, id) => (
-                            <ProductInCart key={id} product={product} cart={cart} setCart={setCart} />
-                        ))
-                    )}
+                    {cart.map((product, id) => (
+                        <ProductInCart key={id} product={product} cart={cart} setCart={setCart} />
+                    ))}
                 </Box>
             </Inner>
         </Base>
