@@ -1,0 +1,32 @@
+@server = http://localhost:3000
+
+# 모든 책 조회
+GET {{server}}/books
+
+### 책 생성
+POST {{server}}/books
+Content-Type: application/json
+
+{
+    "title": "트렌드 코리아 2025",
+    "author": "김난도",
+    "publishedDate": "2024.09.25.",
+    "isAvailable": true
+}
+
+### 특정 책 조회
+GET {{server}}/books/1
+
+### 책 삭제
+DELETE {{server}}/books/1
+
+### 책 정보 수정
+PUT {{server}}/books/1
+Content-Type: application/json
+
+{
+    "title": "시대예보:호명사회",
+    "author": "송길영",
+    "publishedDate": "2024.09.25.",
+    "isAvailable": false
+}
